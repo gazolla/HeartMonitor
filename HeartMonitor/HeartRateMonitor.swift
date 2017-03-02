@@ -92,7 +92,7 @@ class HeartRateMonitor: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         self.heartMonitor!.discoverServices(nil)
         let connected = "Connected: " + (self.heartMonitor!.state == CBPeripheralState.connected ? "YES" : "NO")
         print("\(connected)")
-        self.updateMessage?("Conectado.")
+        self.updateMessage?("Connected.")
 
     }
     
@@ -123,7 +123,7 @@ class HeartRateMonitor: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         if error != nil { print(" didDisconnectPeripheral:: \(error!)") }
         self.heartMonitor?.delegate = nil
-        self.updateMessage?("Desconectado.")
+        self.updateMessage?("Desconnected.")
         let hr = HeartRate(BPM: 0, intensity: 0)
         self.update?(hr)
         startRetrieving()
@@ -165,18 +165,18 @@ class HeartRateMonitor: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         if (peripheralUUID != nil) {
             print(">>>>>>>>> retrieving Peripheral....")
             print(">>>>>>>>> peripheral uuid =>> \(peripheralUUID)")
-            self.updateMessage?("Recuperando sensor...")
+            self.updateMessage?("Retrieving sensor...")
             for p:AnyObject in self.centralManager.retrievePeripherals(withIdentifiers: [NSUUID(uuidString:peripheralUUID!) as! UUID]) {
                 if p is CBPeripheral {
                     self.heartMonitor = p as? CBPeripheral
                     self.centralManager.connect(self.heartMonitor!, options: nil)
                     print(">>>>>>>>> connecting Peripheral....")
-                    self.updateMessage?("Conectando ao sensor...")
+                    self.updateMessage?("Connecting sensor...")
                     return
                 }
             }
         } else {
-            self.updateMessage?("Registre um sensor.")
+            self.updateMessage?("Registre sensor.")
         }
     }
     

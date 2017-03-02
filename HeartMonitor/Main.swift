@@ -87,6 +87,7 @@ class Main: UIViewController {
     lazy var heartMsgLabel:UILabel = {
         let l = UILabel()
         l.textAlignment = .center
+        l.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         l.textColor = UIColor.black
         l.backgroundColor = UIColor.clear
         l.text = "........................."
@@ -96,6 +97,7 @@ class Main: UIViewController {
     lazy var heartRateLabel:UILabel = {
         let lbl = UILabel()
         lbl.textAlignment = .center
+        lbl.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         lbl.font = UIFont(name: "HelveticaNeue-CondensedBlack", size: 100)
         lbl.textColor = UIColor.black
         lbl.backgroundColor = UIColor.clear
