@@ -6,6 +6,11 @@ This simple app demonstrates general principles of BLE stack usage on iOS.
 
 Used CoreBluetooth classes: CBCentralManager, CBPeripheral, CBService, CBCharacteristic.
 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/u5KwzFiueXA/hqdefault.jpg)](https://youtu.be/u5KwzFiueXA)
+
+
+[Youtube Video](https://youtu.be/u5KwzFiueXA)
+
 
 ### Contact
 
